@@ -83,7 +83,9 @@ models:
     type: page
     label: Page
     template: page
-    exclude: "_posts/**"
+    exclude:
+      - "_posts/**"
+      - "404.md"
     fields:
       - type: string
         name: title
