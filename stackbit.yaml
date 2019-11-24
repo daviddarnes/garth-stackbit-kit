@@ -2,13 +2,15 @@ ssgName: jekyll
 stackbitVersion: "^0.2.41"
 buildCommand: "bundle install && jekyll build"
 staticDir: ""
+dataDir: ""
 uploadDir: assets
 pagesDir: ""
 pageTemplateKey: layout
 models:
   config:
-    type: config
+    type: data
     label: Config
+    file: _config.yml
     fields:
       - type: string
         name: lang
@@ -43,6 +45,12 @@ models:
         label: Plugins
         items:
           type: string
+      - type: list
+        name: exclude
+        label: Exclude
+        description: Exclude files from being published
+        items:
+          type: string
       - type: number
         name: paginate
         label: Paginate
@@ -55,6 +63,26 @@ models:
         name: markdown
         label: Markdown
         hidden: true
+      - type: string
+        name: theme
+        label: Theme
+      - type: object
+        name: collections
+        label: collections
+        fields:
+          - type: object
+            name: posts
+            label: posts
+            fields:
+              - type: string
+                name: title
+                label: Collection Title
+              - type: boolean
+                name: output
+                label: Output
+              - type: string
+                name: description
+                label: Collection Description
   post:
     type: page
     label: Post
@@ -84,8 +112,8 @@ models:
     label: Page
     template: page
     exclude:
-      - "_posts/**"
       - "404.md"
+      - "_posts/**"
     fields:
       - type: string
         name: title
