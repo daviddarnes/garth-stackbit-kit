@@ -1,0 +1,127 @@
+ssgName: jekyll
+stackbitVersion: "^0.2.41"
+buildCommand: "bundle install && jekyll build"
+staticDir: ""
+uploadDir: assets
+pagesDir: ""
+pageTemplateKey: layout
+models:
+  config:
+    type: config
+    label: Config
+    fields:
+      - type: string
+        name: lang
+        label: Site Language
+        description: The language of your site used in HTML lang attribute
+      - type: string
+        name: title
+        label: Site Title
+        description: The site title
+      - type: string
+        name: description
+        label: Description
+        description: The site description
+      - type: string
+        name: baseurl
+        label: Baseurl
+        description: The subpath of your site, e.g. /blog, for generating urls
+      - type: string
+        name: url
+        label: Url
+        description: The base URL of the site
+      - type: string
+        name: permalink
+        label: Permalink
+        description: The permalink pattern
+      - type: image
+        name: logo
+        label: Logo
+        description: The logo image of your site
+      - type: list
+        name: plugins
+        label: Plugins
+        items:
+          type: string
+      - type: number
+        name: paginate
+        label: Paginate
+        description: Number of posts per page
+      - type: string
+        name: paginate_path
+        label: Pagination Path
+        description: The permalink pattern of paginated pages
+      - type: string
+        name: markdown
+        label: Markdown
+        hidden: true
+  post:
+    type: page
+    label: Post
+    template: post
+    folder: _posts
+    fields:
+      - name: title
+        type: string
+        label: Title
+        description: The title of the post
+        required: true
+      - name: description
+        type: string
+        label: Description
+        description: The description of the post
+      - name: date
+        type: date
+        label: Date
+        description: The date of the post
+      - name: categories
+        type: list
+        label: Categories
+        items:
+          type: string
+  page:
+    type: page
+    label: Page
+    template: page
+    exclude: "_posts/**"
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page
+        required: true
+      - type: string
+        name: description
+        label: Description
+        description: The description of the page
+  pagenotfound:
+    type: page
+    label: '404'
+    file: 404.md
+    singleInstance: true
+    template: page
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page
+        required: true
+      - type: string
+        name: description
+        label: Description
+        description: The description of the page
+      - type: string
+        name: permalink
+        label: Permalink
+        description: The permalink of the page
+        hidden: true
+      - type: boolean
+        name: indexing
+        label: Indexing
+        description: Hide 404 from crawler bots
+        hidden: true
+      - type: boolean
+        name: sitemap
+        label: Sitemap
+        description: Hide 404 from sitemap
+        hidden: true
