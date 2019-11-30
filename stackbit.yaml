@@ -2,6 +2,7 @@ ssgName: custom
 stackbitVersion: "^0.2.41"
 buildCommand: "bundle install && jekyll build"
 staticDir: ""
+publishDir: "_site"
 dataDir: ""
 uploadDir: assets
 pagesDir: ""
