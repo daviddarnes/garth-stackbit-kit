@@ -113,24 +113,8 @@ models:
     label: Page
     template: page
     exclude:
-      - "404.md"
       - "_posts/**"
-    fields:
-      - type: string
-        name: title
-        label: Title
-        description: The title of the page
-        required: true
-      - type: string
-        name: description
-        label: Description
-        description: The description of the page
-  pagenotfound:
-    type: page
-    label: '404'
-    file: 404.md
-    singleInstance: true
-    template: page
+      - "README.md"
     fields:
       - type: string
         name: title
@@ -145,14 +129,17 @@ models:
         name: permalink
         label: Permalink
         description: The permalink of the page
-        hidden: true
-      - type: boolean
-        name: indexing
-        label: Indexing
-        description: Hide 404 from crawler bots
+        required: false
         hidden: true
       - type: boolean
         name: sitemap
         label: Sitemap
-        description: Hide 404 from sitemap
+        description: Include in sitemap?
+        required: false
+        hidden: true
+      - type: boolean
+        name: indexing
+        label: Indexing
+        description: Index the page with search engines?
+        required: false
         hidden: true
